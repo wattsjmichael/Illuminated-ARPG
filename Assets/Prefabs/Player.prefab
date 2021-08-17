@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5661177538091867609}
   - component: {fileID: 5123248025389236160}
   - component: {fileID: 1110378201}
+  - component: {fileID: 7664930615976569219}
   - component: {fileID: 1110378202}
   m_Layer: 0
   m_Name: Player
@@ -84,6 +85,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &7664930615976569219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661971298847340917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d011df36ebfa6645b560d755a0c0f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!195 &1110378202
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -93,7 +107,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 661971298847340917}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.5
   m_Speed: 10
   m_Acceleration: 20
   avoidancePriority: 50
@@ -103,7 +117,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &5007450185346055365
@@ -161,6 +175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9572094, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 780a4a964357f854b86e3bfbb704beb1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
 --- !u!4 &5007450185346163645 stripped
