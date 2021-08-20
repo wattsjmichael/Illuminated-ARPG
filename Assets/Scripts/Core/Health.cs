@@ -4,12 +4,14 @@ using UnityEngine;
 
 
 
+
 namespace RPG.Core
 {
   public class Health : MonoBehaviour
   {
     [SerializeField] float healthPoints = 100f;
     bool isDead = false;
+    
     public bool IsDead()
     {
       return isDead;
@@ -27,6 +29,7 @@ namespace RPG.Core
 
     public void DeathAnimation()
     {
+      
       if(isDead) return;
       isDead = true;
       GetComponent<Animator>().SetTrigger("die");
