@@ -89,6 +89,11 @@ PrefabInstance:
       propertyPath: weaponDamage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6824077209161390859, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 8998151496851946262, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
         type: 3}
       propertyPath: m_RootOrder

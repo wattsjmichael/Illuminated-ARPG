@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6383278058212159409}
   - component: {fileID: 2025382635317404403}
-  - component: {fileID: 5962267292054745688}
   - component: {fileID: 320811513509217439}
   m_Layer: 0
   m_Name: Saving
@@ -45,24 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f54b488dbe09c4e8268b5a381890ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5962267292054745688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4942225830567661599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8992ed3194e9aa447ac15fb28bab5bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: -1
-  spawnPoint: {fileID: 0}
-  destination: 0
-  fadeInTime: 2
-  fadeOutTime: 1
-  fadeWaitTime: 0.5
 --- !u!114 &320811513509217439
 MonoBehaviour:
   m_ObjectHideFlags: 0

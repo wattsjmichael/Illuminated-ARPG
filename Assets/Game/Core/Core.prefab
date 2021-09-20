@@ -93,7 +93,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998862151506302249}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 23.01416, y: -10.632295, z: 13.890472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -183,7 +183,7 @@ PrefabInstance:
     - target: {fileID: 1095996381089345974, guid: 4050289a21ebc0d45b2016e5a5054814,
         type: 3}
       propertyPath: weaponDamage
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2348412872178067250, guid: 4050289a21ebc0d45b2016e5a5054814,
         type: 3}

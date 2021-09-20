@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEngine.AI;
 
-
 namespace RPG.SceneManagment
+
 {
   public class Portal : MonoBehaviour
   {
@@ -17,31 +15,24 @@ namespace RPG.SceneManagment
     [SerializeField] int sceneToLoad = -1;
     [SerializeField] Transform spawnPoint;
     [SerializeField] DestinationIdentifier destination;
-
-    [SerializeField] float fadeInTime= 2f;
     [SerializeField] float fadeOutTime = 1f;
+    [SerializeField] float fadeInTime = 2f;
     [SerializeField] float fadeWaitTime = 0.5f;
-
-
-
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-      if (other.CompareTag("Player"))
+      if (other.tag == "Player")
       {
         StartCoroutine(Transition());
       }
-
     }
 
     private IEnumerator Transition()
     {
-
-      if( sceneToLoad < 0)
+      if (sceneToLoad < 0)
       {
-        Debug.LogError("Change the scene!");
+        Debug.LogError("Scene to load not set");
         yield break;
       }
-      
       DontDestroyOnLoad(gameObject);
 
       Fader fader = FindObjectOfType<Fader>();
@@ -51,7 +42,8 @@ namespace RPG.SceneManagment
 
       Portal otherPortal = GetOtherPortal();
       UpdatePlayer(otherPortal);
-      
+
+
       yield return new WaitForSeconds(fadeWaitTime);
       yield return fader.FadeIn(fadeInTime);
 
@@ -61,19 +53,23 @@ namespace RPG.SceneManagment
     private void UpdatePlayer(Portal otherPortal)
     {
       GameObject player = GameObject.FindWithTag("Player");
-      player.GetComponent<NavMeshAgent>().Warp(otherPortal.spawnPoint.position);
+      player.GetComponent<NavMeshAgent>().enabled = false;
+      player.transform.position = otherPortal.spawnPoint.position;
       player.transform.rotation = otherPortal.spawnPoint.rotation;
+      player.GetComponent<NavMeshAgent>().enabled = true;
+
     }
 
     private Portal GetOtherPortal()
     {
-
       foreach (Portal portal in FindObjectsOfType<Portal>())
       {
         if (portal == this) continue;
         if (portal.destination != destination) continue;
+
         return portal;
       }
+
       return null;
     }
   }

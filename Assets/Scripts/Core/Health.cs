@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-
+using RPG.Saving;
 
 
 
 namespace RPG.Core
 {
-  public class Health : MonoBehaviour
+  public class Health : MonoBehaviour, ISaveable
   {
     [SerializeField] float healthPoints = 100f;
     [SerializeField] TakeDamageEvent takeDamage;
@@ -38,6 +38,7 @@ namespace RPG.Core
       if (healthPoints == 0)
       {
         DeathAnimation();
+        takeDamage.Invoke(damage);
       }
       else
       {
@@ -48,7 +49,7 @@ namespace RPG.Core
 
     public void DeathAnimation()
     {
-
+      
       if (isDead) return;
       isDead = true;
       GetComponent<Animator>().SetTrigger("die");
@@ -56,6 +57,18 @@ namespace RPG.Core
 
     }
 
+    public object CaptureState()
+    {
+      return healthPoints;
+    }
 
+    public void RestoreState(object state)
+    {
+      healthPoints = (float)state;
+      if (healthPoints == 0)
+      {
+        DeathAnimation();
+      }
+    }
   }
 }
