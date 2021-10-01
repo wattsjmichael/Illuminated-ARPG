@@ -3,18 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using System;
 
 namespace RPG.Combat
 {
 
   public class Fighter : MonoBehaviour, IAction
   {
-    [SerializeField] float weaponRange = 2f;
-    [SerializeField] float timeBetweenAttacks = 1f;
-    [SerializeField] float weaponDamage = 5f;
+    
+   
+    
+   
+    [SerializeField] Transform rightHandTransform = null;
+    [SerializeField] Transform leftHandTransform = null;
+
+    [SerializeField] weapon weapon = null; 
+    weapon currentWeapon = null;
     Health target;
 
     float timeSinceLastAttack = 0;
+
+    private void Start()
+    {
+        EquipWeapon(weapon);
+       
+    }
+
+
     private void Update()
     {
       timeSinceLastAttack += Time.deltaTime;
@@ -37,7 +52,7 @@ namespace RPG.Combat
     private void AttackBehavior()
     {
       transform.LookAt(target.transform);
-      if (timeSinceLastAttack > timeBetweenAttacks)
+      if (timeSinceLastAttack > weapon.GetTimeBetweenAttack())
       {
         TriggerAttack();
         timeSinceLastAttack = Mathf.Infinity;
@@ -57,13 +72,19 @@ namespace RPG.Combat
       {
         return;
       }
-      target.TakeDamage(weaponDamage);
+      target.TakeDamage(currentWeapon.GetDamage());
       
+    }
+    public void EquipWeapon(weapon weapon)
+    {
+     currentWeapon = weapon;
+     Animator animator = GetComponent<Animator>();
+     weapon.Spawn(rightHandTransform, leftHandTransform, animator);
     }
 
     private bool GetIsInRange()
     {
-      return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+      return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
     }
 
     public void Attack(GameObject combatTarget)
@@ -89,7 +110,7 @@ namespace RPG.Combat
 
     public bool CanAttack(GameObject combatTarget)
     {
-      if(combatTarget == null)
+      if(combatTarget == null )
       {
         return false; 
       }

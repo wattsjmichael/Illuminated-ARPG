@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
+  suspicionTime: 3
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  waypointDwellTime: 3
+  patrolSpeed: 1.5
+  aggroSpeed: 5
 --- !u!1001 &2627486642725966731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,6 +80,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e488cfd825ce044395037d93a9d8eb6, type: 3}
+--- !u!4 &2627486642726054131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 457592, guid: 5e488cfd825ce044395037d93a9d8eb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2627486642725966731}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2627486642726052065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 455530, guid: 5e488cfd825ce044395037d93a9d8eb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2627486642725966731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4713121964768174203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,10 +163,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5764391289551183417, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: f2c882f1bf2b1c64f94d24b0dbff027c,
+        type: 2}
+    - target: {fileID: 5764391289551183417, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 2627486642726052065}
+    - target: {fileID: 5764391289551183417, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 2627486642726052065}
+    - target: {fileID: 5764391289551183417, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 2627486642726054131}
     - target: {fileID: 6943922393993480381, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
         type: 3}
       propertyPath: healthPoints
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998151496851946262, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6023434160748133057, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b, type: 3}
