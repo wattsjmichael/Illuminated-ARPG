@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using UnityEngine;
 
 
@@ -14,43 +15,62 @@ namespace RPG.Combat
     [SerializeField] float weaponRange = 2f;
     [SerializeField] float weaponDamage = 5f;
     [SerializeField] bool isRightHanded = true;
+    [SerializeField] Projectile projectile = null;
 
-     [SerializeField] float timeBetweenAttacks = 1f;
+    [SerializeField] float timeBetweenAttacks = 1f;
     public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
     {
       if (equippedPrefab != null)
       {
-        Transform handtransform;
-        if(isRightHanded) 
-        {
-          handtransform = rightHand;
-        }
-        else
-        { 
-          handtransform = leftHand;
-        }
-      Instantiate(equippedPrefab, rightHand);
+        Transform handtransform = GetTransform(rightHand, leftHand);
+        Instantiate(equippedPrefab, handtransform);
       }
       if (animatorOverride != null)
       {
-      animator.runtimeAnimatorController = animatorOverride;
+        animator.runtimeAnimatorController = animatorOverride;
 
       }
+    }
+
+    private Transform GetTransform(Transform rightHand, Transform leftHand)
+    {
+      Transform handtransform;
+      if (isRightHanded)
+      {
+        handtransform = rightHand;
+      }
+      else
+      {
+        handtransform = leftHand;
+      }
+
+      return handtransform;
+    }
+
+    public bool HasProjectile()
+    {
+      return projectile != null;
     }
 
     public float GetDamage()
     {
-        return weaponDamage;
+      return weaponDamage;
     }
 
-      public float GetRange()
+    public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
     {
-        return weaponRange;
+      Projectile projectileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity );
+      projectileInstance.SetTarget(target);
     }
 
-       public float GetTimeBetweenAttack()
+    public float GetRange()
     {
-        return timeBetweenAttacks;
+      return weaponRange;
+    }
+
+    public float GetTimeBetweenAttack()
+    {
+      return timeBetweenAttacks;
     }
   }
 }

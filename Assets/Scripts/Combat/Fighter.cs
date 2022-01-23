@@ -10,14 +10,14 @@ namespace RPG.Combat
 
   public class Fighter : MonoBehaviour, IAction
   {
-    
-   
-    
-   
+
+
+
+
     [SerializeField] Transform rightHandTransform = null;
     [SerializeField] Transform leftHandTransform = null;
 
-    [SerializeField] weapon weapon = null; 
+    [SerializeField] weapon weapon = null;
     weapon currentWeapon = null;
     Health target;
 
@@ -25,8 +25,8 @@ namespace RPG.Combat
 
     private void Start()
     {
-        EquipWeapon(weapon);
-       
+      EquipWeapon(weapon);
+
     }
 
 
@@ -68,18 +68,30 @@ namespace RPG.Combat
 
     void Hit()
     {
-      if(target == null)
+      if (target == null)
       {
         return;
       }
-      target.TakeDamage(currentWeapon.GetDamage());
-      
+      if (currentWeapon.HasProjectile())
+      {
+        currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+      }
+      else
+      {
+        target.TakeDamage(currentWeapon.GetDamage());
+      }
+
+    }
+
+    void Shoot()
+    {
+      Hit();
     }
     public void EquipWeapon(weapon weapon)
     {
-     currentWeapon = weapon;
-     Animator animator = GetComponent<Animator>();
-     weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+      currentWeapon = weapon;
+      Animator animator = GetComponent<Animator>();
+      weapon.Spawn(rightHandTransform, leftHandTransform, animator);
     }
 
     private bool GetIsInRange()
@@ -110,9 +122,9 @@ namespace RPG.Combat
 
     public bool CanAttack(GameObject combatTarget)
     {
-      if(combatTarget == null )
+      if (combatTarget == null)
       {
-        return false; 
+        return false;
       }
       Health targetToTest = combatTarget.GetComponent<Health>();
       return targetToTest != null && !targetToTest.IsDead();
