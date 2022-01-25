@@ -7,6 +7,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 641349299692205928, guid: a625d63b20eacc84e9c9d76b727266b9,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 769c824bb85eb6b458df34b2290b633f,
+        type: 2}
     - target: {fileID: 687140231768863880, guid: a625d63b20eacc84e9c9d76b727266b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -91,6 +97,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8793321278544422518, guid: a625d63b20eacc84e9c9d76b727266b9,
+        type: 3}
+      propertyPath: chaseDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a625d63b20eacc84e9c9d76b727266b9, type: 3}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Bow
+  m_Name: Bow Blue Projectile
   m_EditorClassIdentifier: Assembly-CSharp:RPG.Combat:weapon
   animatorOverride: {fileID: 22100000, guid: 831146d606f2b5244979dbfc87a5805b, type: 2}
   equippedPrefab: {fileID: 2339440382466603838, guid: 72ca7a799569e884ea97ad7d6b063b68,
@@ -18,6 +18,6 @@ MonoBehaviour:
   weaponRange: 10
   weaponDamage: 10
   isRightHanded: 0
-  projectile: {fileID: 7925090260792054394, guid: 62faa0ce76301ea41aef9718216ade5a,
+  projectile: {fileID: 3866286552184714995, guid: 48d14fc3e964178428714a6f577216d9,
     type: 3}
   timeBetweenAttacks: 1
