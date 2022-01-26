@@ -35,7 +35,7 @@ namespace RPG.Core
       healthPoints = Mathf.Max(healthPoints - damage, 0);
 
 
-      if (healthPoints == 0)
+      if (healthPoints <= 0)
       {
         DeathAnimation();
         takeDamage.Invoke(damage);

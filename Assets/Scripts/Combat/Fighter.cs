@@ -32,6 +32,7 @@ namespace RPG.Combat
 
     private void Update()
     {
+      
       timeSinceLastAttack += Time.deltaTime;
 
       if (target == null) return;
@@ -43,6 +44,7 @@ namespace RPG.Combat
       }
       else
       {
+       
         GetComponent<Mover>().Cancel();
         AttackBehavior();
       }
@@ -102,12 +104,14 @@ namespace RPG.Combat
     public void Attack(GameObject combatTarget)
     {
       GetComponent<ActionScheduler>().StartAction(this);
+       //Might be the magic ticket!
       target = combatTarget.GetComponent<Health>();
 
     }
 
     public void Cancel()
     {
+      
       TriggerStopAttack();
       target = null;
       GetComponent<Mover>().Cancel();
