@@ -19,7 +19,7 @@ namespace RPG.Core
     {
     }
 
-    bool isDead = false;
+    public bool isDead = false;
     private void Start()
     {
 
@@ -31,7 +31,9 @@ namespace RPG.Core
     }
 
     public void TakeDamage(float damage)
+    
     {
+      if(IsDead()) return;
       healthPoints = Mathf.Max(healthPoints - damage, 0);
 
 

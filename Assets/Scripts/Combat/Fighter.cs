@@ -36,7 +36,12 @@ namespace RPG.Combat
       timeSinceLastAttack += Time.deltaTime;
 
       if (target == null) return;
-      if (target.IsDead()) return;
+      if (target.IsDead())
+      {
+       GetComponent<Animator>().SetTrigger("stopAttack");
+       return;
+
+              };
 
       if (!GetIsInRange())
       {
@@ -70,7 +75,7 @@ namespace RPG.Combat
 
     void Hit()
     {
-      if (target == null)
+      if (target == null || target.IsDead())
       {
         return;
       }
