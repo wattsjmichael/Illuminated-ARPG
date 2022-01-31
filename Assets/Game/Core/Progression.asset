@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Unarmed
-  m_EditorClassIdentifier: Assembly-CSharp:RPG.Combat:weapon
-  animatorOverride: {fileID: 0}
-  equippedPrefab: {fileID: 0}
-  weaponRange: 2
-  weaponDamage: 3
-  timeBetweenAttacks: 2
+  m_Script: {fileID: 11500000, guid: 26d0b487b9236874fadc560459fe95e0, type: 3}
+  m_Name: Progression
+  m_EditorClassIdentifier: 
+  characterClasses: []

@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Fireball
+  m_Name: Unarmed
   m_EditorClassIdentifier: Assembly-CSharp:RPG.Combat:weapon
-  animatorOverride: {fileID: 22100000, guid: f206db901a789c14294f4d0c47c58283, type: 2}
+  animatorOverride: {fileID: 0}
   equippedPrefab: {fileID: 0}
-  weaponRange: 25
-  weaponDamage: 1
+  weaponRange: 2
+  weaponDamage: 5
   isRightHanded: 1
-  projectile: {fileID: 7925090260792054394, guid: 7eebb079969cc784d92d24fcdf613d93,
-    type: 3}
+  projectile: {fileID: 0}
   timeBetweenAttacks: 1

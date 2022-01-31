@@ -118,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 661971298847340917, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
         type: 3}
       propertyPath: m_Name
-      value: TieEnemy
+      value: TieGrunt
       objectReference: {fileID: 0}
     - target: {fileID: 5661177538091867609, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
         type: 3}
@@ -179,7 +179,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 11400000, guid: f2c882f1bf2b1c64f94d24b0dbff027c,
+      objectReference: {fileID: 11400000, guid: 6e23a81484731b840b8da3f597cb46df,
         type: 2}
     - target: {fileID: 5764391289551183417, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
         type: 3}
@@ -205,6 +205,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001364495156996451, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: characterClass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001364495156996451, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: progression
+      value: 
+      objectReference: {fileID: 11400000, guid: cb06d2460b35b684e9fc092271433ab2,
+        type: 2}
+    - target: {fileID: 9001364495156996451, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: startingLevel
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6023434160748133057, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b, type: 3}

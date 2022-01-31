@@ -4,11 +4,13 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
 using System;
+using RPG.Saving;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {
 
-  public class Fighter : MonoBehaviour, IAction
+  public class Fighter : MonoBehaviour, IAction, ISaveable
   {
 
 
@@ -18,6 +20,7 @@ namespace RPG.Combat
     [SerializeField] Transform leftHandTransform = null;
 
     [SerializeField] weapon weapon = null;
+
     weapon currentWeapon = null;
     Health target;
 
@@ -25,7 +28,11 @@ namespace RPG.Combat
 
     private void Start()
     {
+      if (currentWeapon == null)
+      {
+
       EquipWeapon(weapon);
+      }
 
     }
 
@@ -137,6 +144,18 @@ namespace RPG.Combat
       }
       Health targetToTest = combatTarget.GetComponent<Health>();
       return targetToTest != null && !targetToTest.IsDead();
+    }
+
+    public object CaptureState()
+    {
+      return currentWeapon.name;
+    }
+
+    public void RestoreState(object state)
+    {
+      string weaponName = (string)state;
+      weapon weapon = Resources.Load<weapon>(weaponName); 
+      EquipWeapon(weapon);
     }
     //ANIMATION EVENT
 

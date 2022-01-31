@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using RPG.Saving;
+using RPG.Stats;
+using RPG.Core;
 
-
-
-namespace RPG.Core
+namespace RPG.Attributes
 {
   public class Health : MonoBehaviour, ISaveable
   {
@@ -19,11 +19,12 @@ namespace RPG.Core
     {
     }
 
+private void Start()
+{
+    healthPoints = GetComponent<BaseStats>().GetHealth();
+}
     public bool isDead = false;
-    private void Start()
-    {
 
-    }
 
     public bool IsDead()
     {
