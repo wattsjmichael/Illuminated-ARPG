@@ -50,6 +50,11 @@ private void Start()
 
     }
 
+
+public float GetPercentage()
+{
+ return  100 * (healthPoints/GetComponent<BaseStats>().GetHealth());
+}
     public void DeathAnimation()
     {
       
