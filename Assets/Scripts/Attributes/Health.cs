@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using RPG.Saving;
 using RPG.Stats;
 using RPG.Core;
+using System;
 
 namespace RPG.Attributes
 {
@@ -31,7 +32,7 @@ private void Start()
       return isDead;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(GameObject instigator, float damage)
     
     {
       if(IsDead()) return;
@@ -42,6 +43,7 @@ private void Start()
       {
         DeathAnimation();
         takeDamage.Invoke(damage);
+        AwardExperience(instigator);
       }
       else
       {
@@ -50,8 +52,14 @@ private void Start()
 
     }
 
+    private void AwardExperience(GameObject instigator)
+    {
+      Experience experience = instigator.GetComponent<Experience>();
+      if(experience == null) return;
+      experience.GainExperience(GetComponent<BaseStats>().GetExperienceReward());
+    }
 
-public float GetPercentage()
+    public float GetPercentage()
 {
  return  100 * (healthPoints/GetComponent<BaseStats>().GetHealth());
 }

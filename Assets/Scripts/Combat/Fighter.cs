@@ -31,7 +31,7 @@ namespace RPG.Combat
       if (currentWeapon == null)
       {
 
-      EquipWeapon(weapon);
+        EquipWeapon(weapon);
       }
 
     }
@@ -39,16 +39,16 @@ namespace RPG.Combat
 
     private void Update()
     {
-      
+
       timeSinceLastAttack += Time.deltaTime;
 
       if (target == null) return;
       if (target.IsDead())
       {
-       GetComponent<Animator>().SetTrigger("stopAttack");
-       return;
+        GetComponent<Animator>().SetTrigger("stopAttack");
+        return;
 
-              };
+      };
 
       if (!GetIsInRange())
       {
@@ -56,13 +56,18 @@ namespace RPG.Combat
       }
       else
       {
-       
+
         GetComponent<Mover>().Cancel();
         AttackBehavior();
       }
 
     }
 
+
+    public Health GetTarget()
+    {
+      return target;
+    }
     private void AttackBehavior()
     {
       transform.LookAt(target.transform);
@@ -88,15 +93,15 @@ namespace RPG.Combat
       }
       if (currentWeapon.HasProjectile())
       {
-        currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+        currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
       }
       else
       {
-        target.TakeDamage(currentWeapon.GetDamage());
+        target.TakeDamage(gameObject, currentWeapon.GetDamage());
       }
 
     }
-//adding code
+    //adding code
     void Shoot()
     {
       Hit();
@@ -116,14 +121,14 @@ namespace RPG.Combat
     public void Attack(GameObject combatTarget)
     {
       GetComponent<ActionScheduler>().StartAction(this);
-       //Might be the magic ticket!
+      //Might be the magic ticket!
       target = combatTarget.GetComponent<Health>();
 
     }
 
     public void Cancel()
     {
-      
+
       TriggerStopAttack();
       target = null;
       GetComponent<Mover>().Cancel();
@@ -154,7 +159,7 @@ namespace RPG.Combat
     public void RestoreState(object state)
     {
       string weaponName = (string)state;
-      weapon weapon = Resources.Load<weapon>(weaponName); 
+      weapon weapon = Resources.Load<weapon>(weaponName);
       EquipWeapon(weapon);
     }
     //ANIMATION EVENT

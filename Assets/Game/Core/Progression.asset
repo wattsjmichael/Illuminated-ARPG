@@ -22,11 +22,11 @@ MonoBehaviour:
     - 50
   - characterClass: 1
     health:
-    - 2
-    - 4
-    - 6
-    - 8
     - 10
+    - 20
+    - 40
+    - 60
+    - 80
   - characterClass: 3
     health:
     - 1
