@@ -26,7 +26,7 @@ namespace RPG.Combat
 
     float timeSinceLastAttack = 0;
 
-    private void Start()
+    private void Awake()
     {
       if (currentWeapon == null)
       {
@@ -159,7 +159,9 @@ namespace RPG.Combat
     public void RestoreState(object state)
     {
       string weaponName = (string)state;
+      Debug.Log(weaponName);
       weapon weapon = Resources.Load<weapon>(weaponName);
+      // Debug.Log(weapon.name);
       EquipWeapon(weapon);
     }
     //ANIMATION EVENT

@@ -110,8 +110,7 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 11400000, guid: f2c882f1bf2b1c64f94d24b0dbff027c,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5764391289551183417, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
         type: 3}
       propertyPath: rightHandTransform
@@ -142,6 +141,12 @@ PrefabInstance:
       propertyPath: startingLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9001364495156996451, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
+        type: 3}
+      propertyPath: progression
+      value: 
+      objectReference: {fileID: 11400000, guid: cb06d2460b35b684e9fc092271433ab2,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114730023758770162, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b, type: 3}
