@@ -30,7 +30,7 @@ namespace RPG.SceneManagment
         Save();
       }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Delete))
       {
         Delete();
       }
@@ -51,7 +51,7 @@ namespace RPG.SceneManagment
       public void Delete()
     {
       GetComponent<SavingSystem>().Delete(defaultSaveFile);
-      Debug.Log(defaultSaveFile);
+      Debug.Log(("Deleting " + defaultSaveFile));
       
     }
   }
