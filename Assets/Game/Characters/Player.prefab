@@ -110,7 +110,8 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 0d2e53d86c030454f8ba836af97ce441,
+        type: 2}
     - target: {fileID: 5764391289551183417, guid: 1c66baf4ee7628d4cadb2d2d3a244c5b,
         type: 3}
       propertyPath: rightHandTransform

@@ -6,6 +6,7 @@ using UnityEngine;
 using RPG.Attributes;
 
 
+
 namespace RPG.Control
 {
   public class PlayerController : MonoBehaviour
@@ -14,6 +15,8 @@ namespace RPG.Control
     void Start()
     {
       health = GetComponent<Health>();
+
+      
     }
     void Update()
     {
@@ -23,6 +26,8 @@ namespace RPG.Control
       }
       if (InteractWithCombat()) return;
       if (InteractWithMovement()) return;
+
+
 
     }
 

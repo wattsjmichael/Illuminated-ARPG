@@ -6,6 +6,7 @@ using RPG.Core;
 using System;
 using RPG.Saving;
 using RPG.Attributes;
+using RPG.Combat;
 
 namespace RPG.Combat
 {
@@ -24,6 +25,7 @@ namespace RPG.Combat
     weapon currentWeapon = null;
     Health target;
 
+
     float timeSinceLastAttack = 0;
 
     private void Awake()
@@ -33,7 +35,8 @@ namespace RPG.Combat
 
         EquipWeapon(weapon);
       }
-
+      
+     GetComponent<Fighter>().enabled = true;
     }
 
 
